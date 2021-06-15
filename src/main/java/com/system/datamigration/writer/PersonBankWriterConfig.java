@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Configuration
-public class PersonBankWriter {
+public class PersonBankWriterConfig {
 
     @Bean
     public JdbcBatchItemWriter<Person> personBankWriter(

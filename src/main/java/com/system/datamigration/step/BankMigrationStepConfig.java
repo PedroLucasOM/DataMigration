@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class BankMigrationStep {
+public class BankMigrationStepConfig {
 
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Step bankDataMigrationStep(
+    public Step bankMigrationStep(
             ItemReader<Bank> bankMigrationReader,
             ItemWriter<Bank> bankMigrationWriter
     ) {

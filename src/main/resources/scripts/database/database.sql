@@ -1,3 +1,9 @@
+DROP DATABASE IF EXISTS app_batch;
+
+CREATE DATABASE app_batch;
+
+USE app_batch;
+
 DROP TABLE IF EXISTS person;
 CREATE TABLE person
 (

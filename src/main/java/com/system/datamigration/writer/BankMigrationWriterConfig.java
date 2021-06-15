@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-public class BankMigrationWriter {
+public class BankMigrationWriterConfig {
 
     @Bean
     public JdbcBatchItemWriter<Bank> bankMigrationWriter(

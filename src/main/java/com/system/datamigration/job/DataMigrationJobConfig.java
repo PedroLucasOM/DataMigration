@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableBatchProcessing
-public class DataMigrationJob {
+public class DataMigrationJobConfig {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
@@ -22,7 +22,7 @@ public class DataMigrationJob {
             @Qualifier("personMigrationStep") Step personMigrationStep,
             @Qualifier("bankMigrationStep") Step bankMigrationStep
     ) {
-        jobBuilderFactory
+        return jobBuilderFactory
                 .get("dataMigrationJob")
                 .start(personMigrationStep)
                 .next(bankMigrationStep)
