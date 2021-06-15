@@ -14,10 +14,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Configuration
-public class PersonMigrationWriter {
+public class PersonBankWriter {
 
     @Bean
-    public JdbcBatchItemWriter<Person> personMigrationWriter(
+    public JdbcBatchItemWriter<Person> personBankWriter(
             @Qualifier("appDataSource") DataSource dataSource) {
         return new JdbcBatchItemWriterBuilder<Person>()
                 .dataSource(dataSource)

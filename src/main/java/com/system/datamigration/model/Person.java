@@ -1,6 +1,7 @@
 package com.system.datamigration.model;
 
 import lombok.*;
+import org.apache.logging.log4j.util.Strings;
 
 import java.util.Date;
 
@@ -17,5 +18,9 @@ public class Person {
     private String email;
     private Date birthDate;
     private Integer age;
+
+    public boolean isValid() {
+        return !Strings.isBlank(name) && !Strings.isBlank(email) && birthDate != null;
+    }
 
 }
