@@ -39,7 +39,7 @@ public class PersonMigrationReaderConfig {
                 Person person = new Person();
                 person.setName(fieldSet.readString("name"));
                 person.setEmail(fieldSet.readString("email"));
-                person.setBirthDate(new Date(String.valueOf(fieldSet.readDate("birthDate", "yyyy-MM-dd HH-mm-ss"))));
+                person.setBirthDate(new Date(fieldSet.readDate("birthDate", "yyyy-MM-dd HH:mm:ss").getTime()));
                 person.setAge(fieldSet.readInt("age"));
                 person.setId(fieldSet.readInt("id"));
                 return person;
