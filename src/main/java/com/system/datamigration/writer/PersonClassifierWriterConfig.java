@@ -23,16 +23,16 @@ public class PersonClassifierWriterConfig {
     }
 
     @SuppressWarnings("serial")
-    private Classifier<Person, ItemWriter<? super Person>> classifier(JdbcBatchItemWriter<Person> bancoPessoaWriter,
-                                                                      FlatFileItemWriter<Person> arquivoPessoasInvalidasWriter) {
+    private Classifier<Person, ItemWriter<? super Person>> classifier(JdbcBatchItemWriter<Person> personBankWriter,
+                                                                      FlatFileItemWriter<Person> fileInvalidPeopleWriter) {
         return new Classifier<Person, ItemWriter<? super Person>>() {
 
             @Override
             public ItemWriter<? super Person> classify(Person person) {
                 if (person.isValid())
-                    return bancoPessoaWriter;
+                    return personBankWriter;
                 else
-                    return arquivoPessoasInvalidasWriter;
+                    return fileInvalidPeopleWriter;
             }
 
         };
