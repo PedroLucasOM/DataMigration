@@ -4,7 +4,7 @@
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-green.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/java-11-green.svg" />
-  <img src="https://img.shields.io/badge/spring-2.5.2-green.svg" />
+  <img src="https://img.shields.io/badge/spring-2.4.5-green.svg" />
   <a href="https://github.com/PedroLucasOM/DataMigration#readme" target="_blank">
     <img alt="documentation" src="https://img.shields.io/badge/documentation-yes-green.svg" />
   </a>
