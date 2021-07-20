@@ -24,10 +24,6 @@
 2. [About the Project](https://github.com/PedroLucasOM/DataMigration#2-about-the-project)
     - [Implemented Job](https://github.com/PedroLucasOM/DataMigration#implemented-job)
     - [Prerequisites](https://github.com/PedroLucasOM/DataMigration#prerequisites)
-    - [Configuration](https://github.com/PedroLucasOM/DataMigration#configuration)
-      - [Windows](https://github.com/PedroLucasOM/DataMigration#windows)
-      - [Linux](https://github.com/PedroLucasOM/DataMigration#linux)
-      - [Mac](https://github.com/PedroLucasOM/DataMigration#mac)
     - [Run](https://github.com/PedroLucasOM/DataMigration#run)
     - [Usage](https://github.com/PedroLucasOM/DataMigration#usage)
     - [Stop](https://github.com/PedroLucasOM/DataMigration#stop)
@@ -48,26 +44,18 @@ To learn more about this framework, view this article on the Notion:
 
 ## Implemented Job
 
+It's a job responsible to execute two steps that will import people and banks from a .csv file to a configured datasource mysql.
 
+These are the files that will be imported:
+
+- [people.csv](https://github.com/PedroLucasOM/DataMigration/blob/master/files/input/people.csv)
+- [bank.csv](https://github.com/PedroLucasOM/DataMigration/blob/master/files/input/bank.csv)
+
+If some person of the file [people.csv](https://github.com/PedroLucasOM/DataMigration/blob/master/files/input/people.csv) is invalid with name, email or birthDate wrongs, the person isn't inserted on the datasource. In this case, the application will build a file in the path **/files/output** with the name **invalid-people.csv** and put these invalid records represented by id.
 
 ## Prerequisites
 
 - docker
-
-## Configuration
-
-
-### Windows
-
-
-
-### Linux
-
-
-
-### Mac
-
-
 
 ## Run
 
@@ -79,7 +67,24 @@ docker-compose up -d --build
 
 ## Usage
 
+### Seeing the valid records in the datasource
 
+**Person records:**
+
+```sh
+docker-compose exec database_app mysql -u root -papp#1234 -e "select * from app_batch.person;"
+```
+
+**Bank records:**
+
+```sh
+docker-compose exec database_app mysql -u root -papp#1234 -e "select * from app_batch.bank;"
+```
+
+### Seeing the invalid records in the generated file
+
+Navigate to **/files/output/** inside of project root and open the file **invalid-people.csv**. 
+You will see the invalid records id if exists.
 
 ## Stop
 
